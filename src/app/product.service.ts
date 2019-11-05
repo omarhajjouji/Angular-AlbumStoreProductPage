@@ -9,6 +9,7 @@ import {Product} from './product'
 export class ProductService {
   private _albumUrl :string =  '../assets/album.json';
   private _productsUrl :string = '../assets/products.json'
+
   constructor(private _http: Http) { }
   
   getAlbum(id:number): Observable<Album> {
@@ -16,7 +17,7 @@ export class ProductService {
   
   }
 
-  getProducts(): Observable<Product[]>{
+  getProducts(): Observable<Product[]> {
     return this._http.get(this._productsUrl).map(response => <Product[]> response.json())
   }
 }
